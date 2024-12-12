@@ -1,0 +1,138 @@
+.fileInput {
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+  position: absolute;
+}
+
+.dropzone {
+  display: flex;
+}
+
+.image-item {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .remove-btn {
+    position: absolute;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+    border-radius: 20px;
+    display: flex;
+    border: none;
+    opacity: .7;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+}
+
+label.dropzone {
+  position: relative;
+  border: 2px dashed #dddddd;
+  border-radius: 10px;
+
+  &::before {
+    position: absolute;
+    content: "Upload images here";
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: calc(50% - 12px);
+    color: #ababab;
+    font-weight: 600;
+  }
+}
+
+.prop-images {
+  width: 130px;
+  height: 130px;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .delete {
+    position: absolute;
+    appearance: none;
+    border: none;
+    color: #fff;
+    background: red;
+    top: 0;
+    left: 0;
+  }
+
+  .cover {
+    position: absolute;
+    appearance: none;
+    border: none;
+    color: #000;
+    background: rgb(255 255 255 / 70%);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 13px;
+    line-height: 21px;
+    font-weight: 600;
+  }
+}
+
+.images-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px 0px;
+}
+
+.dashboard-my-listing-tabs.dashboard-badge {
+  position: relative;
+}
+
+.edit-unit {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 5px 10px;
+  border-radius: 0px 0px 0px 10px;
+  background: #d2a09f;
+  color: #fff;
+  font-weight: 600;
+}
+
+.delete-wrap {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  button {
+    padding: 5px 10px;
+    border-radius: 10px 0px 0px 0px;
+    background: #e42e2a;
+    color: #fff;
+    font-weight: 600;
+    appearance: none;
+    border: 0;
+  }
+}

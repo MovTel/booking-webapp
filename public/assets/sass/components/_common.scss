@@ -1,0 +1,18 @@
+.admin-nav ul>li>a.logout-btn-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  input[type="submit"] {
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 0px;
+    flex-grow: 1;
+    cursor: pointer;
+  }
+}
+
+.movietelle-loader {
+  width: 50px;
+}

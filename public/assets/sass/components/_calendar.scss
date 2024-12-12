@@ -1,0 +1,45 @@
+.fc-day {
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover {
+    background: #e6b7bb;
+  }
+}
+
+:root {
+  --fc-today-bg-color: #ffe4e7;
+}
+
+.marked-date {
+  background: #e6b7bb;
+}
+
+.fc .fc-scrollgrid-section-liquid>td {
+  padding: 0px !important;
+}
+
+.calendar {
+  table td {
+    padding: 0px !important;
+  }
+}
+
+.fc-col-header {
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+table thead {
+  .fc-scroller {
+    overflow-y: hidden !important;
+  }
+
+  th {
+    padding: 0px !important;
+  }
+}
+
+.fc .fc-scroller-liquid-absolute {
+  overflow-x: hidden!important;
+}
