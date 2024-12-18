@@ -12,8 +12,9 @@ class UnitController extends Controller
 {
     public function index()
     {
+        $user_type = auth()->user()->user_type;
         $units = Unit::with('coverImage')->get();
-        return view('webapp.units.index', ['units' => $units]);
+        return view('webapp.units.index', ['units' => $units, 'user_type' => $user_type]);
     }
 
     public function unit($id)

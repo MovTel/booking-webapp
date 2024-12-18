@@ -21,6 +21,7 @@ class Booking extends Model
         'unit_id',
         'dp',
         'fp',
+        'agent_id',
     ];
 
     public function getCheckoutFormattedAttribute()
@@ -50,7 +51,12 @@ class Booking extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function agent()
+    {
+        return $this->belongsTo(User::class, 'agent_id');
     }
 
     public function getStatusFormattedAttribute()

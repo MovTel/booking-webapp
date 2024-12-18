@@ -18,18 +18,20 @@
                         </div>
 
                         <div class="list-category-content">
-                            <h4 class="listing-place-name"><a href="{{ url('unit/' . $unit->id) }}">{{ $unit->property_name }}</a></h4>
+                            <h4 class="listing-place-name"><a href="{{ url('properties/' . $unit->id) }}">{{ $unit->property_name }}</a></h4>
                             <span class="listing-cat-address"><i class="sl-icon-location"></i>{{ $unit->property_description }}</span>
                         </div>
                     </div>
                 </div>
-
+                
+                @if($user_type == 1 || $user_type == 2)
                 <a href="{{ url('unit/' . $unit->id . '/edit' ) }}" class="edit-unit">Edit Unit</a>
                 <form action="{{ url('unit/' . $unit->id . '/delete') }}" method="POST" class="delete-wrap">
                     @csrf
                     @method('DELETE')
                     <button type="submit">Delete Unit</button>
                 </form>
+                @endif
             </div>
         @endforeach
     </div>

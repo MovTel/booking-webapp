@@ -13,8 +13,8 @@
     <meta name="description" content="" />
     
     <!-- FAVICONS ICON -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+    <link rel="icon" href="{{ asset('assets') }}/images/movietelle-favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets') }}/images/movietelle-favicon.png" />
     
     <!-- PAGE TITLE HERE -->
     <title>@isset($title){{ $title }}@endisset | Movietelle</title>

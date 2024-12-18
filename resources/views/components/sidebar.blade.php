@@ -52,7 +52,7 @@
                 <a href="javascript:;"><i class="sl-icon-layers "></i><span class="admin-nav-text">Properties</span></a>
                 <ul class="sub-menu">
                         <li><a href="{{ url('properties') }}"><i class="sl-icon-layers "></i><span class="admin-nav-text">View Properties</span></a></li>
-                        <li><a href="{{ url('properties/add') }}"><i class="sl-icon-layers "></i><span class="admin-nav-text">Add Property</span></a></li>
+                        <li><a href="{{ url('properties/create') }}"><i class="sl-icon-layers "></i><span class="admin-nav-text">Add Property</span></a></li>
                 </ul>
             </li>
             @endif

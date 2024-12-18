@@ -162,7 +162,7 @@
                         <div class="wt-tabs tabs-default">
                             <ul class="nav nav-tabs">
                                 <li><a class="active"data-toggle="tab" href="#login-one">Login </a></li>
-                                <!--<li><a data-toggle="tab" href="#register-one">Register </a></li>-->
+                                <li><a data-toggle="tab" href="#register-one">Register </a></li>
                             </ul>
                             <div class="tab-content">
 
@@ -196,7 +196,7 @@
                                     <div class="wt-tabs tabs-default">
                                         <ul class="nav nav-tabs">
                                             <li><a class="active" data-toggle="tab" href="#guest-one"><i class="sl-icon-user m-r10"></i>Guest</a></li>
-                                            {{-- <li><a data-toggle="tab" href="#owner-one"><i class="sl-icon-briefcase m-r10"></i>Owner</a></li> --}}
+                                            <li><a data-toggle="tab" href="#owner-one"><i class="sl-icon-briefcase m-r10"></i>Owner</a></li>
                                         </ul>
 
                                         <div class="tab-content">

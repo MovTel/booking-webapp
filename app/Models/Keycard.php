@@ -15,4 +15,18 @@ class Keycard extends Model
         'user_id',
         'keycard_type',
     ];
+
+    public function getKeycardStatusFormattedAttribute()
+    {
+        switch ($this->attributes['keycard_status']) {
+            case 1:
+                return 'running';
+            case 2:
+                return 'active';
+            case 3:
+                return 'inactive';
+            default:
+                return 'unknown';
+        }
+    }
 }

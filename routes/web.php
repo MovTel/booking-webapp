@@ -63,7 +63,6 @@ Route::controller(UnitController::class)->middleware('auth')->group(function () 
     Route::get('/unit', 'index');
     Route::get('/unit/create', 'create');
     Route::post('/unit/store', 'store');
-    Route::get('/unit/{id}', 'unit');
     Route::get('/unit/{id}/edit', 'edit');
     Route::put('/unit/{id}/update', 'update');
     Route::delete('/unit/{id}/delete', 'destroy');
@@ -71,6 +70,11 @@ Route::controller(UnitController::class)->middleware('auth')->group(function () 
 
 Route::controller(PropertyController::class)->middleware('auth')->group(function () {
     Route::get('/properties', 'index');
+    Route::get('/properties/create', 'create');
+    Route::post('/properties/store', 'store');
+    Route::get('/properties/{id}/edit', 'edit');
+    Route::put('/properties/{id}/update', 'update');
+    Route::delete('/properties/{id}/delete', 'destroy');
 });
 
 Route::controller(Property_imageController::class)->middleware('auth')->group(function () {

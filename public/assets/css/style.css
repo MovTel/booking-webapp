@@ -18466,7 +18466,7 @@ textarea.form-control2 {
   position: relative;
 }
 
-.dashboard-my-listing:last-child .list-item-container {
+.dashboard-my-listing:nth-last-of-type() .list-item-container {
   margin-bottom: 0px;
 }
 
@@ -19175,6 +19175,7 @@ textarea.form-control2 {
 
 .wt-dashboard-msg-search {
   position: relative;
+  display: flex;
 }
 
 .wt-dashboard-msg-search .form-control {

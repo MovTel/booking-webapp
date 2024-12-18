@@ -48,6 +48,11 @@ class User extends Authenticatable
 
     public function bookings()
     {
-        return $this->hasMany(Booking::class);
+        return $this->hasMany(Booking::class, 'user_id');
+    }
+
+    public function agentRecords()
+    {
+        return $this->hasMany(Booking::class, 'agent_id');
     }
 }

@@ -1,0 +1,30 @@
+.msg-user-info-text .keycard-status {
+  line-height: 20px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #fff;
+  font-style: normal;
+  padding: 2px 8px;
+  margin-left: 3px;
+  position: relative;
+  top: -2px;
+}
+
+.msg-user-info-text .keycard-status.running {
+  background-color: #00ca95;
+}
+
+.msg-user-info-text .keycard-status.active {
+  background-color: #5e6db3;
+}
+
+.msg-user-info-text .keycard-status.inactive {
+  background-color: #ff0000;
+}
+
+.msg-user-info-text.keycard-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}

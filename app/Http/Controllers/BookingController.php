@@ -147,7 +147,8 @@ class BookingController extends Controller
                 'dp' => $cost,
                 'fp' => $cost,
                 'checkout_time_plus_one' => $checkout_plus_1,
-                'id_image' => $requestData['id_image']
+                'id_image' => $requestData['id_image'],
+                'agent_id' => $user_id
             ];
 
             Booking::create(array_merge($validated, $auto_gen))->id;
@@ -171,11 +172,23 @@ class BookingController extends Controller
         return redirect('/dashboard');
     }
 
-    public function keycardAll()
+    public function keycardAll(Request $request)
     {
         $user_type = auth()->user()->user_type;
 
         if ($user_type == 1 || $user_type == 2) {
+            if ($request->query()) {
+                $keycards = Keycard::select('*')->when($request->text_search && $request->string, function ($query) use ($request) {
+                    $query->where($request->text_search, 'like', '%' . $request->string . '%');
+                })->when($request->keycard_status || $request->keycard_status == 0, function ($query) use ($request) {
+                    $query->where('keycard_status', $request->keycard_status);
+                })->when($request->keycard_type, function ($query) use ($request) {
+                    $query->where('keycard_type', $request->keycard_type);
+                })->get();
+
+                return view('webapp.keycard.keycard_all', ['keycards' => $keycards]);
+            }
+
             $keycards = Keycard::All();
             return view('webapp.keycard.keycard_all', ['keycards' => $keycards]);
         }
@@ -285,11 +298,23 @@ class BookingController extends Controller
         return redirect('/dashboard');
     }
 
-    public function schedules()
+    public function schedules(Request $request)
     {
         $user_type = auth()->user()->user_type;
 
         if ($user_type == 1 || $user_type == 2 || $user_type == 3) {
+            if ($request->query()) {
+                $schedules = Booking::select('*')->when($request->text_search && $request->string, function ($query) use ($request) {
+                    $query->where($request->text_search, 'like', '%' . $request->string . '%');
+                })->when($request->status || $request->status == 0, function ($query) use ($request) {
+                    $query->where('status', $request->status);
+                })->when($request->checkin_date, function ($query) use ($request) {
+                    $query->where('checkin_date', $request->checkin_date);
+                })->get();
+
+                return view('webapp.schedule.index', ['schedules' => $schedules]);
+            }
+
             $schedules = Booking::with('user')->get();
             return view('webapp.schedule.index', ['schedules' => $schedules]);
         }
