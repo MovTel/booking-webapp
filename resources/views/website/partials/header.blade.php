@@ -163,7 +163,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">About Us</a>
+                                    <a href="{{ url('/about-us') }}">About Us</a>
                                     {{-- <ul class="sub-menu">
                                         <li><a href="about-1.html">Who are we</a></li>
                                         <li><a href="pricing-table.html">What we do</a></li>

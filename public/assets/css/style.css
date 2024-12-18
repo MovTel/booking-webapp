@@ -11993,6 +11993,9 @@ ol.commentlist li::after {
 
 .video-section-dark img {
   width: 100%;
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
 }
 
 @media only screen and (max-width:991px) {
