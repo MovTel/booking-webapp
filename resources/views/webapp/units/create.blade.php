@@ -107,6 +107,7 @@
                         <label>Maximum Capacity</label>
                         <div class="ls-inputicon-box">
                             <input class="form-control wt-form-control" name="capacity" type="number" required>
+                            <i class="fs-input-icon fa fa-user-o"></i>
                         </div>
                     </div>
                 </div>
@@ -461,8 +462,8 @@
                     <div class="form-group">
                         <label>Asking Price per hour (min of 4hrs)</label>
                         <div class="ls-inputicon-box">
-                            <input class="form-control wt-form-control" name="per_hour_4_hrs" type="number"
-                                required>
+                            <input class="form-control wt-form-control" name="per_hour_4_hrs" type="number" required>
+                            <i class="fs-input-icon fa fa-money"></i>
                         </div>
                     </div>
                 </div>
@@ -471,8 +472,8 @@
                     <div class="form-group">
                         <label>Discounted per hour (min of 12hrs)</label>
                         <div class="ls-inputicon-box">
-                            <input class="form-control wt-form-control" name="per_hour_12_hrs" type="number"
-                                required>
+                            <input class="form-control wt-form-control" name="per_hour_12_hrs" type="number" required>
+                            <i class="fs-input-icon fa fa-money"></i>
                         </div>
                     </div>
                 </div>
@@ -481,8 +482,8 @@
                     <div class="form-group">
                         <label>Discounted per hour (min of 24hrs)</label>
                         <div class="ls-inputicon-box">
-                            <input class="form-control wt-form-control" name="per_hour_24_hrs" type="number"
-                                required>
+                            <input class="form-control wt-form-control" name="per_hour_24_hrs" type="number" required>
+                            <i class="fs-input-icon fa fa-money"></i>
                         </div>
                     </div>
                 </div>
@@ -492,6 +493,7 @@
                         <label>Discount for more than 48hrs</label>
                         <div class="ls-inputicon-box">
                             <input class="form-control wt-form-control" name="plus_48_hrs" type="text" required>
+                            <i class="fs-input-icon fa fa-money"></i>
                         </div>
                     </div>
                 </div>
@@ -501,6 +503,7 @@
                         <label>Downpayment</label>
                         <div class="ls-inputicon-box">
                             <input class="form-control wt-form-control" name="downpayment" type="text" required>
+                            <i class="fs-input-icon fa fa-money"></i>
                         </div>
                     </div>
                 </div>
@@ -513,6 +516,7 @@
                                 <option value="0">Pending</option>
                                 <option value="1">Active</option>
                             </select>
+                            <i class="fs-input-icon fa fa-th-large"></i>
                         </div>
                     </div>
                 </div>

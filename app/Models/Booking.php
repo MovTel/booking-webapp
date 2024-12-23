@@ -13,30 +13,29 @@ class Booking extends Model
     protected $fillable = [
         'user_id',
         'guests',
-        'checkin_date',
-        'checkin_time',
-        'checkout_time',
-        'checkout_time_plus_one',
+        'checkin',
+        'checkout',
+        'checkout_plus_one_hour',
         'id_image',
         'unit_id',
-        'dp',
-        'fp',
+        'total',
+        'comment',
         'agent_id',
     ];
 
     public function getCheckoutFormattedAttribute()
     {
-        return Carbon::parse($this->attributes['checkout_time'])->format('g:i A');
+        return Carbon::parse($this->attributes['checkout'])->format('F j, Y g:i A');
     }
 
     public function getCheckinFormattedAttribute()
     {
-        return Carbon::parse($this->attributes['checkin_time'])->format('g:i A');
+        return Carbon::parse($this->attributes['checkin'])->format('F j, Y g:i A');
     }
 
-    public function getDateFormattedAttribute()
+    public function getCheckoutPlusFormattedAttribute()
     {
-        return Carbon::parse($this->attributes['checkin_date'])->format('F j, Y');
+        return Carbon::parse($this->attributes['checkout_plus_one_hour'])->format('F j, Y g:i A');
     }
 
     public function getCreatedFormattedAttribute()

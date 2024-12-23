@@ -22,7 +22,7 @@
                                 <img src="{{ asset('assets') }}/images/user-avtar/pic1.jpg" alt="" id="img_preview" style="width: 240px; height: 240px; object-fit: cover; object-position: center;">
                                 <div class="upload-btn-wrapper">
                                     <button class="site-button-secondry site-btn-effect button-sm">Upload Photo ID</button>
-                                    <input type="file" name="id_image" required id="img_upload">
+                                    <input type="file" name="id_image" id="img_upload">
                                 </div>
                             </div>
                         </div>
@@ -34,7 +34,17 @@
                                         <label>Check-in Date</label>
                                         <div class="ls-inputicon-box">
                                             <input class="form-control" name="checkin_date" type="date" value="{{ $date }}" readonly>
-                                            <i class="fs-input-icon sl-icon-month"></i>
+                                            <i class="fs-input-icon fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Check-out Date</label>
+                                        <div class="ls-inputicon-box">
+                                            <input class="form-control" name="checkout_date" type="date" value="">
+                                            <i class="fs-input-icon fa fa-calendar"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -101,5 +111,10 @@
             </div>
         </form>
     </div>
+</div>
+
+<div class="modal-booking"></div>
+<div class="calendar-wrap">
+    <div id="calendar-modal"></div>
 </div>
 @include('webapp.partials.footer')

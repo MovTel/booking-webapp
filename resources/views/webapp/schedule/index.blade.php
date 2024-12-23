@@ -58,7 +58,7 @@
                     <div class="msg-user-info-text booking-info">
                       <div class="booking-info-left">
                         <div class="msg-user-name">{{ $schedule->user->first_name . " " . $schedule->user->last_name }}</div>
-                        <div class="msg-user-discription">{{ $schedule->date_formatted . "  |  " . $schedule->checkin_formatted . " - " . $schedule->checkout_formatted }}</div>
+                        <div class="msg-user-discription">{{ $schedule->checkin_formatted . " - " . $schedule->checkout_formatted }}</div>
                       </div>
                       <div class="booking-status {{ $schedule->status_formatted }}">{{ $schedule->status_formatted }}</div>
                     </div>

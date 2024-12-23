@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bookings', function (Blueprint $table) {
-            $table->id();
-            $table->string('user_id');
-            $table->string('guests');
-            $table->string('id_image');
-            $table->string('unit_id');
-            $table->string('status')->default(0);
-            $table->timestamps();
+        Schema::table('units', function (Blueprint $table) {
+            $table->string('minimum_hours')->default(4);
         });
     }
 
@@ -31,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bookings');
+        Schema::table('units', function (Blueprint $table) {
+            $table->dropColumn('minimum_hours');
+        });
     }
 };

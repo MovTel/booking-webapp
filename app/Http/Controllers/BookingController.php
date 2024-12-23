@@ -13,6 +13,8 @@ use DateInterval;
 use DateTime;
 use Illuminate\Support\Facades\Redirect;
 
+use function PHPUnit\Framework\isEmpty;
+
 class BookingController extends Controller
 {
     public function index()
@@ -44,46 +46,9 @@ class BookingController extends Controller
             }
 
             $status_keycard = Keycard::where('user_id', $user_id)->whereIn('keycard_status', [2, 1])->get();
-            $checkin_times = array_column(booking::select('checkin_time')->where(['checkin_date' => $request->date, 'status' => 1])->get()->toArray(), 'checkin_time');
-            $checkout_times = array_column(booking::select('checkout_time_plus_one')->where(['checkin_date' => $request->date, 'status' => 1])->get()->toArray(), 'checkout_time_plus_one');
 
             $times = [];
             $date = Carbon::parse($request->date)->format('Y-m-d');
-
-            if ($checkin_times) {
-
-                $starting_hour = null;
-                $current_hour = "";
-
-                for ($hour = 0; $hour < 24; $hour++) {
-                    $time24 = str_pad($hour, 2, '0', STR_PAD_LEFT) . ':00:00';
-                    $time12 = date('h:i A', strtotime($time24));
-                    $status = 1;
-
-                    if (in_array($time24, $checkin_times)) {
-                        $starting_hour = $time24;
-                    }
-
-                    $current_hour = $time24;
-
-                    $checkin_order = array_search($starting_hour, $checkin_times);
-                    $checkout_time_match = $checkin_order ? $checkout_times[$checkin_order] : $checkout_times[0];
-                    if (strtotime($current_hour) <= strtotime($checkout_time_match) && strtotime($current_hour) >= strtotime($checkin_times[$checkin_order])) {
-                        $status = 0;
-                    } else {
-                        $status = 1;
-                    }
-
-                    $times[] = [
-                        '24hr' => $time24,
-                        '12hr' => $time12,
-                        'status' => $status,
-                    ];
-                }
-
-                $unit = Unit::findOrFail($unit_id);
-                return view('webapp.bookings.booking', ['unit' => $unit, 'hours' => $times, 'date' => $date, 'status_keycard' => $status_keycard]);
-            }
 
             for ($hour = 0; $hour < 24; $hour++) {
                 $time24 = str_pad($hour, 2, '0', STR_PAD_LEFT) . ':00:00';
@@ -109,20 +74,26 @@ class BookingController extends Controller
         $user_type = auth()->user()->user_type;
 
         if ($user_type == 4) {
-            $requestData = $request->all();
-            $checkin = new DateTime($request->checkin_time);
-            $checkout = new DateTime($request->checkout_time);
+            $checkin = new DateTime($request->checkin_date . "T" . $request->checkin_time);
+            $checkout = new DateTime($request->checkout_date . "T" . $request->checkout_time);
+            $checkout_dupe = new DateTime($request->checkout_date . "T" . $request->checkout_time);
             $interval = $checkin->diff($checkout);
-            $checkout_plus_1 = $checkout->add(new DateInterval('PT1H'));
-            $total_hours = $interval->h;
+            $checkout_plus_1_hour = $checkout_dupe->add(new DateInterval('PT1H'));
+            $total_hours = ($interval->days * 24) + $interval->h;
             $unit = Unit::findOrFail($unit_id);
-
-            if ($total_hours < 4) {
-                return redirect::back()->with('message', 'You can only book a minimum of 4 hours.');
-            }
-
             $cost = $total_hours * $unit->per_hour_4_hrs;
 
+            $conflict = Booking::where(function ($query) use ($checkin, $checkout) {
+                $query->where('checkin', '<', $checkout)->where('checkout', '>', $checkin);
+            })->get();
+
+            if ($total_hours < $unit->minimum_hours) {
+                return redirect::back()->with('message', 'You can only book a minimum of ' . $unit->minimum_hours . ' hours.');
+            }
+
+            if (count($conflict) != 0) {
+                return Redirect::back()->with('message', 'Sorry, selected booking is not available.');
+            }
 
             if ($request->id_image) {
                 $fileName = time() . $request->file("id_image")->getClientOriginalName();
@@ -136,6 +107,7 @@ class BookingController extends Controller
             $validated = $request->validate([
                 "guests" => ['required'],
                 "checkin_date" => ['required'],
+                "checkout_date" => ['required'],
                 "checkin_time" => ['required'],
                 "checkout_time" => ['required'],
                 "id_image" => ['required'],
@@ -144,11 +116,12 @@ class BookingController extends Controller
             $auto_gen = [
                 'user_id' => $user_id,
                 'unit_id' => $unit->id,
-                'dp' => $cost,
-                'fp' => $cost,
-                'checkout_time_plus_one' => $checkout_plus_1,
+                'total' => $cost,
                 'id_image' => $requestData['id_image'],
-                'agent_id' => $user_id
+                'agent_id' => $user_id,
+                'checkin' => $checkin,
+                'checkout' => $checkout,
+                'checkout_plus_one_hour' => $checkout_plus_1_hour,
             ];
 
             Booking::create(array_merge($validated, $auto_gen))->id;

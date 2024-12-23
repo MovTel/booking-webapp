@@ -1,4 +1,4 @@
-@include('website.partials.header', ['title' => 'Movietelle'])
+@include('website.partials.header', ['title' => 'About Us'])
 <!-- CONTENT START -->
 <div class="page-content">
 
@@ -46,15 +46,9 @@
                             <h3 class="wt-title m-t0">Welcome to Movietelle, your go-to destination for planning the perfect staycation.</h3>
                             <p>Our mission is to help you escape the ordinary and rediscover the joy of relaxation, all without leaving your local area. We believe that the best experiences don’t always require traveling far. That’s why we curate a range of handpicked accommodations, unique experiences, and personalized packages designed to make your staycation memorable.</p><p>Whether you’re looking for a cozy retreat, a family-friendly adventure, or a romantic getaway, we’ve got you covered.</p>
                             <ol class="list-num-count  m-b30">
-                                <li>
-                                    <h5> Handpicked Accommodations: Choose from a selection of charming hotels, cozy cabins, and more.</h5>
-                                </li>
-                                <li>
-                                    <h5> Unique Experiences: discover activities tailored to your preferences.</h5>
-                                </li>
-                                <li>
-                                    <h5> Seamless Booking Experience: Easily plan your dream staycation with our user-friendly platform.</h5>
-                                </li>
+                                <li><h5> Handpicked Accommodations: Choose from a selection of charming hotels, cozy cabins, and more.</h5></li>
+                                <li><h5> Unique Experiences: discover activities tailored to your preferences.</h5></li>
+                                <li><h5> Seamless Booking Experience: Easily plan your dream staycation with our user-friendly platform.</h5></li>
                             </ol>
                             <div class="text-left">
                                 <a href="{{ url('/') }}" class="site-button-secondry site-btn-effect"

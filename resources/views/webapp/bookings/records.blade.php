@@ -28,7 +28,7 @@
                 <div class="dashboard-booking-detail">
                     <span class="booking-title">Booking Date</span>
                     <ul class="booking-list">
-                        <li><span>{{ $booking->date_formatted }} at {{ $booking->checkin_formatted . " to " . $booking->checkout_formatted }}</span></li>
+                        <li><span>{{ $booking->checkin_formatted }} - {{ $booking->checkout_formatted }}</span></li>
                     </ul>
                 </div>
                 <div class="dashboard-booking-detail">

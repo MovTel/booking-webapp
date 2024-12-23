@@ -23,10 +23,9 @@
                 <div class="col-md-6">
                     <p id="details">
                         <strong>Request Date:</strong>{{ $schedule->created_formatted }} <br>
-                        <strong>Booking Date:</strong>{{ $schedule->date_formatted }} <br>
-                        <strong>Check-in Time:</strong>{{ $schedule->checkin_formatted }} <br>
-                        <strong>Check-out Time:</strong>{{ $schedule->checkout_formatted }} <br>
-                        <strong>Overall Cost</strong>₱{{ number_format($schedule->dp, 2, '.', ','); }}<br>
+                        <strong>check-in Date:</strong>{{ $schedule->checkin_formatted }} <br>
+                        <strong>Check-out Date:</strong>{{ $schedule->checkout_formatted }} <br>
+                        <strong>Overall Cost</strong>₱{{ number_format($schedule->total, 2, '.', ','); }}<br>
                     </p>
                 </div>
             </div>

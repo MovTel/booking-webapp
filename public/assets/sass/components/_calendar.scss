@@ -2,6 +2,10 @@
   cursor: pointer;
   transition: .3s;
 
+  @media(max-width: 767px) {
+    height: 50px;
+  }
+
   &:hover {
     background: #e6b7bb;
   }
@@ -41,5 +45,29 @@ table thead {
 }
 
 .fc .fc-scroller-liquid-absolute {
-  overflow-x: hidden!important;
+  overflow-x: hidden !important;
+}
+
+.hover-modal.active {
+  background: #fff;
+  padding: 10px;
+  box-shadow: 3px 3px 6px #000;
+  position: absolute;
+  border-radius: 10px;
+}
+
+#show-calendar {
+  display: block;
+  padding: 20px;
+  cursor: pointer;
+  background: #f96b39;
+  font-weight: 700;
+  border-radius: 10px;
+  text-align: center;
+  transition: .3s;
+  color: #fff;
+
+  &:hover {
+    opacity: .7;
+  }
 }

@@ -22,6 +22,11 @@ $(document).ready(function () {
   setTimeout(function () {
     $("#message").fadeOut(1000);
   }, 3000);
+
+  $('#show-calendar, .modal-booking').click(function () {
+    $('.modal-booking').toggleClass('active');
+    $('.calendar-wrap').toggleClass('active');
+  });
 });
 
 const fileInput = document.getElementById('fileInput');
