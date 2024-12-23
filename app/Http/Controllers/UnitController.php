@@ -71,6 +71,7 @@ class UnitController extends Controller
                 "per_hour_12_hrs" => ['nullable'],
                 "per_hour_24_hrs" => ['nullable'],
                 "plus_48_hrs" => ['nullable'],
+                "minimum_hours" => ['required'],
                 "downpayment" => ['nullable'],
             ]);
 
@@ -121,6 +122,7 @@ class UnitController extends Controller
                 "per_hour_12_hrs" => ['nullable'],
                 "per_hour_24_hrs" => ['nullable'],
                 "plus_48_hrs" => ['nullable'],
+                "minimum_hours" => ['required'],
                 "downpayment" => ['nullable'],
             ]);
 

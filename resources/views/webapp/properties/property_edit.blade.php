@@ -503,6 +503,16 @@
                     </div>
                 </div>
 
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label>Minimum Hours</label>
+                        <div class="ls-inputicon-box">
+                            <input class="form-control wt-form-control" name="minimum_hours" type="number" required value="{{ $units->minimum_hours }}">
+                            <i class="fs-input-icon fa fa-money"></i>
+                        </div>
+                    </div>
+                </div>
+
                 {{-- <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                         <label>Status</label>
