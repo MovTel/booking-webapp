@@ -8,7 +8,7 @@ const date = params.get('date');
 var today = new Date();
 
 const baseUrl = window.location.origin;
-const apiUrl = baseUrl + '/api/bookings';
+const apiUrl = baseUrl + '/api/bookings/' + lastSegment;
 var bookings;
 
 document.addEventListener('DOMContentLoaded', function () {

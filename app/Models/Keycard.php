@@ -12,6 +12,8 @@ class Keycard extends Model
     protected $fillable = [
         'keycard_number',
         'keycard_status',
+        'keycard_tier',
+        'proof_of_payment',
         'user_id',
         'keycard_type',
     ];

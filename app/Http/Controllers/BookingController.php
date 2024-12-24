@@ -83,8 +83,8 @@ class BookingController extends Controller
             $unit = Unit::findOrFail($unit_id);
             $cost = $total_hours * $unit->per_hour_4_hrs;
 
-            $conflict = Booking::where(function ($query) use ($checkin, $checkout) {
-                $query->where('checkin', '<', $checkout)->where('checkout', '>', $checkin);
+            $conflict = Booking::where(function ($query) use ($checkin, $checkout, $unit_id) {
+                $query->where('checkin', '<', $checkout)->where('checkout', '>', $checkin)->where('unit_id', '=', $unit_id)->where('status', '=', 1);
             })->get();
 
             if ($total_hours < $unit->minimum_hours) {
@@ -338,6 +338,18 @@ class BookingController extends Controller
         if ($user_type == 1 || $user_type == 2 || $user_type == 3) {
             Booking::where('id', $id)->update(['status' => 3]);
             return Redirect::back()->with('message', 'Booking Cancelled.');
+        }
+
+        return redirect('/dashboard');
+    }
+
+    public function addComment(Request $request, $id)
+    {
+        $user_type = auth()->user()->user_type;
+
+        if ($user_type == 1 || $user_type == 2 || $user_type == 3) {
+            Booking::where('id', $id)->update(['comment' => $request->comment]);
+            return Redirect::back()->with('message', 'Comment Added.');
         }
 
         return redirect('/dashboard');

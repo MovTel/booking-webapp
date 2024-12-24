@@ -22,4 +22,19 @@ class BookingController extends Controller
             'data' => $bookings
         ], 200);
     }
+
+    public function getUnitBookings($id)
+    {
+        $bookings = Booking::where('status', 1)->where('unit_id', $id)->get()->map(function ($booking) {
+            $booking->start = date('Y-m-d\TH:i:s', strtotime($booking->checkin));
+            $booking->end = date('Y-m-d\TH:i:s', strtotime($booking->checkout_plus_one_hour));
+            $booking->description = "Start Date: ".$booking->checkin_formatted."<br>End date: ".$booking->checkout_plus_formatted;
+            return $booking;
+        });
+
+        return response()->json([
+            'success' => true,
+            'data' => $bookings
+        ], 200);
+    }
 }

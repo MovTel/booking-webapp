@@ -26,6 +26,7 @@
                                         <label>Keycard Number</label>
                                         <div class="ls-inputicon-box">
                                             <input class="form-control" name="keycard_number" type="text" value="{{ $keycard->keycard_number }}">
+                                            <i class="fs-input-icon fa fa-barcode"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -39,6 +40,7 @@
                                                 <option value="2" {{ $keycard->keycard_status == 2 ? 'selected' : '' }}>Active</option>
                                                 <option value="3" {{ $keycard->keycard_status == 3 ? 'selected' : '' }}>Inactive</option>
                                             </select>
+                                            <i class="fs-input-icon fa fa-bars"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -53,6 +55,7 @@
                                                     <option value="{{ $guest->id }}" @if($guest->id == $keycard->user_id ) {{"selected"}} @endif>{{ $guest->first_name . " " . $guest->last_name }}</option>
                                                 @endforeach
                                             </select>
+                                            <i class="fs-input-icon fa fa-chain"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -65,6 +68,7 @@
                                                 <option value="1" {{ $keycard->keycard_type == 1 ? 'selected' : '' }}>Permanent</option>
                                                 <option value="2" {{ $keycard->keycard_type == 2 ? 'selected' : '' }}>Temporary</option>
                                             </select>
+                                            <i class="fs-input-icon fa fa-list-alt"></i>
                                         </div>
                                     </div>
                                 </div>

@@ -65,6 +65,36 @@
 
     </div>
 
+    <div class="panel-body wt-panel-body p-a20 m-b30 bg-white">
+        <form action="{{ url('booking/'.$schedule->id.'/comment') }}" method="POST" enctype="multipart/form-data">
+          @csrf
+          @method('PUT')
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="dashboard-profile-section clearfix">
+                        <div class="dasboard-profile-form overflow-hide">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Comment</label>
+                                        <textarea class="form-control" rows="3" name="comment" placeholder="Add Comment">{{ $schedule->comment }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12">
+                    <div class="text-left">
+                        <button type="submit" class="site-button-secondry site-btn-effect">Save</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
 </div>
 </div>
 

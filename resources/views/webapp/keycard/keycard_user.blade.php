@@ -20,10 +20,10 @@
                     <div class="dashboard-profile-section clearfix">
                         <div class="dashboard-profile-pic">
                             <div class="dashboard-profile-photo">
-                                <img src="{{ url('assets') }}/images/user-avtar/pic1.jpg" alt="">
+                                <img src="{{ asset('assets') }}/images/user-avtar/pic1.jpg" alt="" id="img_preview" style="width: 240px; height: 240px; object-fit: cover; object-position: center;">
                                 <div class="upload-btn-wrapper">
-                                    <button class="site-button-secondry site-btn-effect button-sm">Upload Photo</button>
-                                    <input type="file" name="id_image" required>
+                                    <button class="site-button-secondry site-btn-effect button-sm">Upload ID Image</button>
+                                    <input type="file" name="id_image" id="img_upload">
                                 </div>
                             </div>
                         </div>

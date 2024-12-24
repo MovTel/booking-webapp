@@ -28,6 +28,7 @@
                                         <label>Keycard Number</label>
                                         <div class="ls-inputicon-box">
                                             <input class="form-control" name="keycard_number" type="text">
+                                            <i class="fs-input-icon fa fa-barcode"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -41,6 +42,7 @@
                                                 <option value="2">Active</option>
                                                 <option value="1">Running</option>
                                             </select>
+                                            <i class="fs-input-icon fa fa-bars"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -56,6 +58,7 @@
                                                     <option value="{{ $guest->id }}">{{ $guest->first_name . " " . $guest->last_name }}</option>
                                                 @endforeach
                                             </select>
+                                            <i class="fs-input-icon fa fa-chain"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -68,6 +71,7 @@
                                                 <option value="2">Temporary</option>
                                                 <option value="1">Permanent</option>
                                             </select>
+                                            <i class="fs-input-icon fa fa-list-alt"></i>
                                         </div>
                                     </div>
                                 </div>

@@ -57,6 +57,7 @@ Route::controller(BookingController::class)->middleware('auth')->group(function 
     Route::put('/schedule/{id}/approve', 'approveSchedule');
     Route::put('/schedule/{id}/decline', 'declineSchedule');
     Route::put('/booking/{id}/cancel', 'cancelSchedule');
+    Route::put('/booking/{id}/comment', 'addComment');
 });
 
 Route::controller(UnitController::class)->middleware('auth')->group(function () {
