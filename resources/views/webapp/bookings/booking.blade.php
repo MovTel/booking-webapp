@@ -19,17 +19,28 @@
                       <div class="dashboard-profile-section clearfix">
                         <div class="dashboard-profile-pic">
                             <div class="dashboard-profile-photo">
-                                <img src="{{ asset('assets') }}/images/user-avtar/pic1.jpg" alt="" id="img_preview" style="width: 240px; height: 240px; object-fit: cover; object-position: center;">
+                                <img src="{{ asset('assets') }}/images/user-avtar/pic1.jpg" alt="" id="img_preview">
                                 <div class="upload-btn-wrapper">
                                     <button class="site-button-secondry site-btn-effect button-sm">Upload Photo ID</button>
-                                    <input type="file" name="id_image" id="img_upload">
+                                    <input type="file" name="id_image" id="img_upload" required>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="dashboard-profile-pic">
+                            <div class="dashboard-profile-photo">
+                                <img src="{{ asset('assets') }}/images/user-avtar/pic1.jpg" alt="" id="img_preview2">
+                                <div class="upload-btn-wrapper">
+                                    <button class="site-button-secondry site-btn-effect button-sm">Upload Proof of Payment</button>
+                                    <input type="file" name="proof_of_payment" id="img_upload2" required>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="dasboard-profile-form overflow-hide">
                             <div class="row">
                             
-                                <div class="col-xl-4 col-lg-12 col-md-12">
+                                <div class="col-xl-6 col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Check-in Date</label>
                                         <div class="ls-inputicon-box">
@@ -39,7 +50,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xl-4 col-lg-12 col-md-12">
+                                <div class="col-xl-6 col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Check-out Date</label>
                                         <div class="ls-inputicon-box">

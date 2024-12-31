@@ -108,3 +108,18 @@ document.getElementById('img_upload').addEventListener('change', function (event
 
   }
 });
+
+document.getElementById('img_upload2').addEventListener('change', function (event) {
+  const file = event.target.files[0]; // Get the selected file
+  const preview = document.getElementById('img_preview2'); // Get the img element
+
+  if (file) {
+    const reader = new FileReader(); // Create a FileReader instance
+    reader.onload = function (e) {
+      preview.src = e.target.result; // Set the img src to the file's data URL
+    };
+    reader.readAsDataURL(file); // Read the file as a data URL
+  } else {
+
+  }
+});

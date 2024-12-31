@@ -4,6 +4,11 @@
   justify-content: flex-start;
   margin-bottom: 20px;
 
+  @media (max-width: 767px) {
+    gap: 15px 10px;
+    justify-content: space-between;
+  }
+
   label {
     font-size: 14px;
     padding: 5px 20px;
@@ -19,6 +24,14 @@
     margin-bottom: 10px;
     cursor: pointer;
     transition: .3s;
+
+    @media (max-width: 767px) {
+      margin-right: 0px;
+      margin-bottom: 0px;
+      font-size: 12px;
+      flex-basis: 30%;
+      padding: 5px 11px;
+    }
 
     &:hover {
       background: #e6b7bb;
@@ -54,6 +67,11 @@
   background: #e6b7bb;
   border-radius: 10px;
 
+  @media(max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+  }
+
   .note-link {
     background: #fff;
     font-weight: 600;
@@ -62,6 +80,13 @@
     border-radius: 20px;
     margin-left: 10px;
     transition: .3s;
+
+    @media (max-width: 767px) {
+      margin-left: 0px;
+      border-radius: 6px;
+      text-align: center;
+      margin-top: 10px;
+    }
 
     &:hover {
       transform: scale(98%);

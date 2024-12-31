@@ -21,6 +21,7 @@ class Booking extends Model
         'total',
         'comment',
         'agent_id',
+        'proof_of_payment',
     ];
 
     public function getCheckoutFormattedAttribute()

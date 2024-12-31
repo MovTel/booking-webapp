@@ -18848,8 +18848,11 @@ textarea.form-control2 {
 
 .dashboard-profile-photo img {
   border-radius: 4px;
-  max-width: 240px;
+  width: 240px;
+  height: 240px;
   width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .dashboard-profile-photo .upload-btn-wrapper {
@@ -18886,6 +18889,7 @@ textarea.form-control2 {
 @media only screen and (max-width:360px) {
   .dashboard-profile-photo img {
     width: 100%;
+    height: 100%;
     max-width: inherit;
   }
 }

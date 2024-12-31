@@ -13,6 +13,8 @@ class Purchase extends Model
         'user_id',
         'full_address',
         'id_image',
+        'proof_of_payment',
+        'keycard_tier',
         'status',
         'keycard_id',
     ];

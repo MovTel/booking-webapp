@@ -48,6 +48,7 @@ Route::controller(BookingController::class)->middleware('auth')->group(function 
     Route::get('/keycard', 'keycardAll');
     Route::get('/keycard/create', 'keycardCreate');
     Route::post('/keycard/store', 'keycardStore');
+    Route::post('/keycard/purchase', 'keycardPurchase');
     Route::get('/keycard/{id}/edit', 'keycardEdit');
     Route::put('/keycard/{id}/update', 'keycardUpdate');
     Route::get('/booking/{unit_id}', 'bookUnit');

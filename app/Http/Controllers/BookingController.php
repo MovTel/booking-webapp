@@ -101,6 +101,12 @@ class BookingController extends Controller
                 $requestData['id_image'] = '/storage/' . $path;
             }
 
+            if ($request->proof_of_payment) {
+                $fileName = time() . $request->file("proof_of_payment")->getClientOriginalName();
+                $path = $request->file("proof_of_payment")->storeAs("proof_image", $fileName, "public");
+                $requestData['proof_of_payment'] = '/storage/' . $path;
+            }
+
             $user_id = auth()->user()->id;
             $unit = Unit::findOrFail($unit_id);
 
@@ -111,6 +117,7 @@ class BookingController extends Controller
                 "checkin_time" => ['required'],
                 "checkout_time" => ['required'],
                 "id_image" => ['required'],
+                "proof_of_payment" => ['required'],
             ]);
 
             $auto_gen = [
@@ -118,6 +125,7 @@ class BookingController extends Controller
                 'unit_id' => $unit->id,
                 'total' => $cost,
                 'id_image' => $requestData['id_image'],
+                'proof_of_payment' => $requestData['proof_of_payment'],
                 'agent_id' => $user_id,
                 'checkin' => $checkin,
                 'checkout' => $checkout,
@@ -194,15 +202,23 @@ class BookingController extends Controller
                 $requestData['id_image'] = '/storage/' . $path;
             }
 
+            if ($request->proof_of_payment) {
+                $fileName = time() . $request->file("proof_of_payment")->getClientOriginalName();
+                $path = $request->file("proof_of_payment")->storeAs("keycard_images", $fileName, "public");
+                $requestData['proof_of_payment'] = '/storage/' . $path;
+            }
+
             $user_id = auth()->user()->id;
 
             $validated = $request->validate([
                 "id_image" => ['required'],
                 "full_address" => ['required'],
+                "proof_of_payment" => ['required'],
+                "keycard_tier" => ['required'],
             ]);
 
-            Purchase::create(array_merge($validated, ['user_id' => $user_id, 'id_image' => $requestData['id_image']]))->id;
-            return redirect('/booking');
+            Purchase::create(array_merge($validated, ['user_id' => $user_id, 'id_image' => $requestData['id_image'], 'proof_of_payment' => $requestData['proof_of_payment']]))->id;
+            return redirect('/booking')->with('message', 'Keycard purchase submitted successfully.');
         }
 
         return redirect('/dashboard');

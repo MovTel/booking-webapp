@@ -13,20 +13,31 @@
         <h4 class="panel-tittle m-a0">Keycard Purchase</h4>
     </div>
     <div class="panel-body wt-panel-body p-a20 m-b30 bg-white">
-        <form action="{{ url('booking/keycard/purchase') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('keycard/purchase') }}" method="POST" enctype="multipart/form-data">
           @csrf
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="dashboard-profile-section clearfix">
                         <div class="dashboard-profile-pic">
                             <div class="dashboard-profile-photo">
-                                <img src="{{ asset('assets') }}/images/user-avtar/pic1.jpg" alt="" id="img_preview" style="width: 240px; height: 240px; object-fit: cover; object-position: center;">
+                                <img src="{{ asset('assets') }}/images/user-avtar/pic1.jpg" alt="" id="img_preview">
                                 <div class="upload-btn-wrapper">
                                     <button class="site-button-secondry site-btn-effect button-sm">Upload ID Image</button>
-                                    <input type="file" name="id_image" id="img_upload">
+                                    <input type="file" name="id_image" id="img_upload" required>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="dashboard-profile-pic">
+                            <div class="dashboard-profile-photo">
+                                <img src="{{ asset('assets') }}/images/user-avtar/pic1.jpg" alt="" id="img_preview2">
+                                <div class="upload-btn-wrapper">
+                                    <button class="site-button-secondry site-btn-effect button-sm">Upload Proof of Payment</button>
+                                    <input type="file" name="proof_of_payment" id="img_upload2" required>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="dasboard-profile-form overflow-hide">
                             <div class="row">
                                 <div class="col-md-12">
@@ -35,6 +46,21 @@
                                         <textarea class="form-control" rows="3" name="full_address" required></textarea>
                                     </div>
                                 </div>
+
+                                <div class="col-xl-4 col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Keycard Status</label>
+                                        <div class="ls-inputicon-box">
+                                            <select class="form-control" name="keycard_tier" type="text">
+                                                <option value="basic">Basic</option>
+                                                <option value="premium">Premium</option>
+                                                <option value="elite">Elite</option>
+                                            </select>
+                                            <i class="fs-input-icon fa fa-bars"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
