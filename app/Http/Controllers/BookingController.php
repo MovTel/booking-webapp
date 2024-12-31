@@ -81,7 +81,17 @@ class BookingController extends Controller
             $checkout_plus_1_hour = $checkout_dupe->add(new DateInterval('PT1H'));
             $total_hours = ($interval->days * 24) + $interval->h;
             $unit = Unit::findOrFail($unit_id);
-            $cost = $total_hours * $unit->per_hour_4_hrs;
+            $cost = 0;
+
+            if ($total_hours > 48) {
+                $cost = $this->calculateTotal($unit->plus_48_hrs, $total_hours, $unit_id);
+            } elseif ($total_hours < 48 && $total_hours >= 24) {
+                $cost = $this->calculateTotal($unit->per_hour_24_hrs, $total_hours, $unit_id);
+            } elseif ($total_hours < 24 && $total_hours >= 12) {
+                $cost = $this->calculateTotal($unit->per_hour_12_hrs, $total_hours, $unit_id);
+            } else {
+                $cost = $total_hours * $unit->per_hour_4_hrs;
+            }
 
             $conflict = Booking::where(function ($query) use ($checkin, $checkout, $unit_id) {
                 $query->where('checkin', '<', $checkout)->where('checkout', '>', $checkin)->where('unit_id', '=', $unit_id)->where('status', '=', 1);
@@ -118,12 +128,13 @@ class BookingController extends Controller
                 "checkout_time" => ['required'],
                 "id_image" => ['required'],
                 "proof_of_payment" => ['required'],
+                "total" => ['required'],
             ]);
 
             $auto_gen = [
                 'user_id' => $user_id,
                 'unit_id' => $unit->id,
-                'total' => $cost,
+                // 'total' => $cost,
                 'id_image' => $requestData['id_image'],
                 'proof_of_payment' => $requestData['proof_of_payment'],
                 'agent_id' => $user_id,
@@ -137,6 +148,20 @@ class BookingController extends Controller
         }
 
         return redirect('/dashboard');
+    }
+
+    public function calculateTotal($multiplier, $total_hours, $unit_id)
+    {
+        $unit = Unit::findOrFail($unit_id);
+        $cost = 0;
+        if ($multiplier && $multiplier < 1) {
+            $deduction = ($total_hours * $unit->per_hour_4_hrs) * $multiplier;
+            $cost = ($total_hours * $unit->per_hour_4_hrs) - $deduction;
+        } else {
+            $cost = $total_hours * $multiplier;
+        }
+
+        return $cost;
     }
 
     public function records()

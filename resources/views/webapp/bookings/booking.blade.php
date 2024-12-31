@@ -40,7 +40,7 @@
                         <div class="dasboard-profile-form overflow-hide">
                             <div class="row">
                             
-                                <div class="col-xl-6 col-lg-12 col-md-12">
+                                <div class="col-xl-4 col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Check-in Date</label>
                                         <div class="ls-inputicon-box">
@@ -50,12 +50,22 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xl-6 col-lg-12 col-md-12">
+                                <div class="col-xl-4 col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Check-out Date</label>
                                         <div class="ls-inputicon-box">
-                                            <input class="form-control" name="checkout_date" type="date" value="">
+                                            <input class="form-control" name="checkout_date" type="date" value="" required>
                                             <i class="fs-input-icon fa fa-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-xl-4 col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Total</label>
+                                        <div class="ls-inputicon-box">
+                                            <input class="form-control" name="total" type="text" value="" required>
+                                            <i class="fs-input-icon fa fa-money"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +73,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Guests</label>
-                                        <textarea class="form-control" rows="3" name="guests"></textarea>
+                                        <textarea class="form-control" rows="3" name="guests" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +87,7 @@
                         <div class="ls-inputicon-box time">
                             @foreach ($hours as $hour)
                                 @if ($hour['status'] == 1)
-                                    <label class="radio"><input type="radio" name="checkin_time" value="{{ $hour['24hr'] }}">{{ $hour['12hr'] }}</label>
+                                    <label class="radio"><input type="radio" name="checkin_time" value="{{ $hour['24hr'] }}" required>{{ $hour['12hr'] }}</label>
                                 @else
                                     <label class="radio occupied">{{ $hour['12hr'] }}</label>
                                 @endif
@@ -92,8 +102,7 @@
                         <div class="ls-inputicon-box time">
                             @foreach ($hours as $hour)
                                 @if ($hour['status'] == 1)
-                                    <label class="radio"><input type="radio" name="checkout_time"
-                                            value="{{ $hour['24hr'] }}">{{ $hour['12hr'] }}</label>
+                                    <label class="radio"><input type="radio" name="checkout_time" value="{{ $hour['24hr'] }}" required>{{ $hour['12hr'] }}</label>
                                 @else
                                     <label class="radio occupied">{{ $hour['12hr'] }}</label>
                                 @endif

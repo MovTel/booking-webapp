@@ -44,4 +44,10 @@ class Unit extends Model
     {
         return $this->hasOne(Property_image::class)->where('is_cover', 1);
     }
+
+    public function getPlus48HrsFormattedAttribute()
+    {
+        $converted = $this->attributes['plus_48_hrs'] * 100;
+        return $converted . "%";
+    }
 }

@@ -466,7 +466,7 @@
                                 <li><span><i class="fa fa-circle"></i>Discounted per hour (min of
                                         24hrs)</span><span>₱{{ $unit->per_hour_24_hrs }}</span></li>
                                 <li><span><i class="fa fa-circle"></i>Discount for more than
-                                        48hrs</span><span>₱{{ $unit->plus_48_hrs }}</span></li>
+                                        48hrs</span><span>{{ $unit->plus_48_hrs_formatted }}</span></li>
                                 <li><span><i
                                             class="fa fa-circle"></i>Downpayment</span><span>₱{{ $unit->downpayment }}</span>
                                 </li>
