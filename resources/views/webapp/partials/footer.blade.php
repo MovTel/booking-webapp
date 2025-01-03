@@ -5,17 +5,17 @@
 </div>
 
 <!-- LOADING AREA START ===== -->
-<div class="loading-area">
+{{-- <div class="loading-area">
 <div class="loading-box"></div>
 <div class="loading-pic">
-  {{-- <img src="{{ asset('assets/images/movietelle.png') }}" alt="" class="load-bounce movietelle-loader"> --}}
+  <img src="{{ asset('assets/images/movietelle.png') }}" alt="" class="load-bounce movietelle-loader">
   <div class='load-pin load-bounce'></div>
 <div class='load-pulse'></div>	
   <div class="cssload-container">
       <div class="cssload-loading"><i></i><i></i><i></i><i></i></div>
   </div>
 </div>
-</div>
+</div> --}}
 
 @if(session('message'))
 <x-prompt :data="session('message')"/>

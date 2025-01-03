@@ -363,14 +363,14 @@
 </div>
 
 <!-- LOADING AREA START ===== -->
-<div class="loading-area">
+{{-- <div class="loading-area">
     <div class="loading-box"></div>
     <div class="loading-pic">
         <div class='load-pin load-bounce'></div>
         <div class='load-pulse'></div>
 
     </div>
-</div>
+</div> --}}
 <!-- LOADING AREA  END ====== -->
 
 <!-- JAVASCRIPT  FILES ========================================= -->

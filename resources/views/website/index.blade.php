@@ -1,4 +1,4 @@
-@include('website.partials.header', ['title' => 'Movietelle'])
+@include('website.partials.header', ['title' => 'Best Staycations and Hotels in Cebu, Tagaytay, and Manila'])
 
 <!-- CONTENT START -->
 <div class="page-content">

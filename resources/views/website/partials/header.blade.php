@@ -15,7 +15,7 @@
     <link rel="icon" href="{{ asset('assets') }}/images/movietelle-favicon.png" type="image/x-icon" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets') }}/images/movietelle-favicon.png" />
 
-    <meta property="og:title" content="Best Staycations and Hotels in Cebu, Tagaytay, and Manila">
+    <meta property="og:title" content="@isset($title){{ $title }}@endisset | Movietelle">
     <meta property="og:description" content="Discover the best staycation spots and hotels in Cebu, Tagaytay, and Manila. Enjoy luxury resorts, beachfront escapes, family-friendly stays, romantic getaways, and more.">
     <meta property="og:image" content="@isset($cover_image){{ url($cover_image) }}@else{{ asset('assets') }}/images/movietelle.png @endisset">
     <meta property="og:url" content="{{ url('/') }}">
@@ -23,7 +23,7 @@
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="@isset($cover_image){{ url($cover_image) }}@else{{ asset('assets') }}/images/movietelle.png @endisset">
-    <meta name="twitter:title" content="Best Staycations and Hotels in Cebu, Tagaytay, and Manila">
+    <meta name="twitter:title" content="@isset($title){{ $title }}@endisset | Movietelle">
     <meta name="twitter:description" content="Discover the best staycation spots and hotels in Cebu, Tagaytay, and Manila. Enjoy luxury resorts, beachfront escapes, family-friendly stays, romantic getaways, and more.">
     <meta name="twitter:image" content="@isset($cover_image){{ url($cover_image) }}@else{{ asset('assets') }}/images/movietelle.png @endisset">
     <meta name="twitter:url" content="{{ url('/') }}">
