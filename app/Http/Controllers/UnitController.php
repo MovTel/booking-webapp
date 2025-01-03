@@ -73,6 +73,7 @@ class UnitController extends Controller
                 "plus_48_hrs" => ['nullable'],
                 "minimum_hours" => ['required'],
                 "downpayment" => ['nullable'],
+                "status" => ['required'],
             ]);
 
             $additional_info = [
@@ -124,6 +125,7 @@ class UnitController extends Controller
                 "plus_48_hrs" => ['nullable'],
                 "minimum_hours" => ['required'],
                 "downpayment" => ['nullable'],
+                "status" => ['required'],
             ]);
 
             $additional_info = [
@@ -133,14 +135,32 @@ class UnitController extends Controller
 
             Unit::where('id', $id)->update(array_merge($validated, $additional_info));
 
+            // if ($request->hasFile('property_images')) {
+            //     foreach ($request->file('property_images') as $image) {
+            //         $fileName = now()->format('Y-m-d_H-i-s') . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            //         $path = $image->storeAs('property_images', $fileName, 'public');
+            //         $imagePath = '/storage/' . $path;
+
+            //         Property_image::create(['unit_id' => $id, 'image_path' => $imagePath])->id;
+            //     }
+            // }
+
             if ($request->hasFile('property_images')) {
+                $propertyImages = [];
+                $timestamp = now()->format('Y-m-d_H-i-s');
+            
                 foreach ($request->file('property_images') as $image) {
-                    $fileName = now()->format('Y-m-d_H-i-s') . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                    $fileName = $timestamp . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
                     $path = $image->storeAs('property_images', $fileName, 'public');
                     $imagePath = '/storage/' . $path;
-
-                    Property_image::create(['unit_id' => $id, 'image_path' => $imagePath])->id;
+            
+                    $propertyImages[] = [
+                        'unit_id' => $id,
+                        'image_path' => $imagePath,
+                    ];
                 }
+                
+                Property_image::insert($propertyImages);
             }
 
             return Redirect::back()->with('message', 'Unit updated successfully.');

@@ -28,6 +28,7 @@ class Unit extends Model
         'plus_48_hrs',
         'downpayment',
         'status',
+        'category'
     ];
 
     public function bookings()
@@ -49,5 +50,16 @@ class Unit extends Model
     {
         $converted = $this->attributes['plus_48_hrs'] * 100;
         return $converted . "%";
+    }
+
+    public function getHourlyAttribute()
+    {
+        if ($this->attributes['per_hour_4_hrs']) {
+            return $this->attributes['per_hour_4_hrs'];
+        } elseif ($this->attributes['per_hour_12_hrs']) {
+            return $this->attributes['per_hour_12_hrs'];
+        } elseif ($this->attributes['per_hour_24_hrs']) {
+            return $this->attributes['per_hour_24_hrs'];
+        }
     }
 }

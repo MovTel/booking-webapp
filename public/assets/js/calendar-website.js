@@ -9,7 +9,6 @@ var today = new Date();
 
 const baseUrl = window.location.origin;
 const bookingUrl = baseUrl + '/api/bookings/' + lastSegment;
-const calculateUrl = baseUrl + '/api/calculate/' + lastSegment;
 var bookings;
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -61,47 +60,4 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(error => {
       console.error('There has been a problem with your fetch operation:', error);
     });
-});
-
-async function fetchDataFromUrlParams(apiBaseUrl) {
-  try {
-      const currentUrl = new URL(window.location.href);
-      const params = new URLSearchParams(currentUrl.search);
-
-      const apiUrl = new URL(apiBaseUrl);
-      params.forEach((value, key) => apiUrl.searchParams.append(key, value));
-
-      const response = await fetch(apiUrl.toString(), {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-      });
-
-      if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      const details = data.data;
-
-      document.getElementById('checkin_value').innerText = details.checkin;
-      document.getElementById('checkout_value').innerText = details.checkout;
-      document.getElementById('total_hours_value').innerText = details.total_hours;
-      document.getElementById('per_hour_value').innerText = details.per_hour;
-      document.getElementById('booking_fee_value').innerText = details.booking_fee;
-      document.getElementById('cost_value').innerText = details.cost;
-  } catch (error) {
-      console.error('Error fetching data:', error);
-  }
-}
-
-document.getElementById('checkout_date').addEventListener('change', (e) => {
-  const checkin_date = document.getElementById('checkin_date').value;
-  const checkout_date = e.target.value;
-  const checkin_time = document.querySelector('input[name="checkin_time"]:checked').value;
-  const checkout_time = document.querySelector('input[name="checkout_time"]:checked').value;
-
-  const apiUrl = `${calculateUrl}?checkin_date=${checkin_date}&checkout_date=${checkout_date}&checkin_time=${checkin_time}&checkout_time=${checkout_time}`;
-  fetchDataFromUrlParams(apiUrl);
 });

@@ -37,7 +37,7 @@
                     <div class="blog-post blog-grid-1 overlay-wraper post-overlay  large-date bg-cover bg-no-repeat bg-top-center"
                         style="background-image:url({{ url($unit->coverImage->image_path) }})">
                         <div class="overlay-main overlay-gradient"></div>
-                        {{-- <div class="blog-category"><span class="clr-red">Fitness</span></div> --}}
+                        <div class="blog-category"><span class="clr-red">₱{{ $unit->hourly }}/HR</span></div>
                         <div class="wt-post-info text-white">
                             <div class="post-overlay-position">
                                 <div class="post-content-outer p-a30">

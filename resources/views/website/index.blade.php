@@ -225,8 +225,7 @@
     </div>
 
     <!-- WELCOME SECTION START -->
-    <div class="section-full p-t80 p-b50 bg-no-repeat bg-center"
-        style="background-image:url({{ asset('assets') }}/images/background/bg-map.png)">
+    <div class="section-full p-t80 p-b50 bg-no-repeat bg-center" style="background-image:url({{ asset('assets') }}/images/background/bg-map.png)" id="quick_easy">
         <div class="container">
             <div class="section-content">
                 <!-- TITLE START-->
@@ -339,7 +338,7 @@
 
                     <div class="row">
 
-                        <div class="col-md-3 col-sm-6">
+                        {{-- <div class="col-md-3 col-sm-6">
                             <div class="m-b30  wt-icon-box-wraper left">
                                 <h2 class="counter site-text-secondry">4000</h2>
                                 <h4 class="text-white">Happy Customers</h4>
@@ -348,14 +347,14 @@
 
                         <div class="col-md-3 col-sm-6">
                             <div class="m-b30 wt-icon-box-wraper left">
-                                <h2 class="counter site-text-secondry">20</h2>
+                                <h2 class="counter site-text-secondry">9</h2>
                                 <h4 class="text-white">Total Listing</h4>
                             </div>
                         </div>
 
                         <div class="col-md-3 col-sm-6">
                             <div class="m-b30 wt-icon-box-wraper left">
-                                <h2 class="counter site-text-secondry">40</h2>
+                                <h2 class="counter site-text-secondry">3</h2>
                                 <h4 class="text-white">All Categories</h4>
                             </div>
                         </div>
@@ -365,7 +364,7 @@
                                 <h2 class="counter site-text-secondry">1</h2>
                                 <h4 class="text-white">Won Awards </h4>
                             </div>
-                        </div>
+                        </div> --}}
 
                     </div>
 
@@ -487,6 +486,7 @@
                     <div class="masonry-item {{ $unit->location }}  col-lg-4 col-md-6 col-sm-12 m-b30">
                         <div class="cities-slide-box bg-cover bg-no-repeat"
                             style="background-image:url(@if($unit->coverImage){{ url($unit->coverImage->image_path) }}@endif)">
+                            <span class="cities-slide-user color-lebel clr-pink">₱{{ $unit->hourly }}/HR</span>
                             <div class="cities-slide-text text-white">
                                 <div class="cities-location-sign"><i class="sl-icon-location "></i></div>
                                 <div class="city-slide-content">

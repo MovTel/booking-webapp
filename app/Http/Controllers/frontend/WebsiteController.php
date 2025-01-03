@@ -15,9 +15,11 @@ class WebsiteController extends Controller
 
     public function single($id)
     {
+        $logged = auth()->user();
         $unit = Unit::with('property_image')->where('status', 1)->findOrFail($id);
         $amenities = explode(",", $unit->amenities);
-        return view('website.single-listing', ['unit' => $unit, 'amenities' => $amenities]);
+        $current_date = date('Y-m-d');
+        return view('website.single-listing', ['unit' => $unit, 'amenities' => $amenities, 'date' => $current_date, 'logged_in' => $logged]);
     }
 
     public function category($slug)

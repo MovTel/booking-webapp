@@ -66,6 +66,7 @@
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/style-website.min.css') }}">
 
 </head>
 

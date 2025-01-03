@@ -1,18 +1,14 @@
 .time {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
   margin-bottom: 20px;
-
-  @media (max-width: 767px) {
-    gap: 15px 10px;
-    justify-content: space-between;
-  }
+  gap: 15px 10px;
+  justify-content: space-between;
 
   label {
     font-size: 14px;
     padding: 5px 20px;
-    flex-basis: 21.87305%;
+    flex-basis: 23%;
     text-align: center;
     border: 2px solid #e6b7bb;
     border-radius: 5px;
@@ -20,14 +16,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 15px;
-    margin-bottom: 10px;
     cursor: pointer;
     transition: .3s;
+    margin-bottom: 0;
 
     @media (max-width: 767px) {
-      margin-right: 0px;
-      margin-bottom: 0px;
       font-size: 12px;
       flex-basis: 30%;
       padding: 5px 11px;

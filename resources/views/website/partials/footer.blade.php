@@ -362,74 +362,6 @@
     </div>
 </div>
 
-<!-- MODAL -->
-<div class="modal fade preview-place" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <!-- MODAL CONTENT-->
-        <div class="modal-content">
-            <button type="button" class="close single-preview-popup-close" data-dismiss="modal">&times;</button>
-            <div class="single-preview-location">
-
-                <div class="single-preview-location-info">
-                    <div class="single-preview-location-left">
-                        <div class="list-slide">
-                            <div class="wt-media">
-                                <img src="{{ asset('assets') }}/images/gallery/pic5.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="list-category-content p-a20">
-                            <div class="p-b10">
-                                <span class="list-cat-featured"><i class="fa fa-star-o"></i>
-                                    Featured</span>
-                                <span class="list-cat-verified"><i class="fa fa-check"></i>
-                                    Verified</span>
-                            </div>
-                            <div class="clearfix">
-                                <div class="wt-rating-section p-b10">
-                                    <span class="wt-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </span>
-                                    <span class="wt-rating-conting">(20 reviews)</span>
-                                </div>
-                            </div>
-                            <h4 class="list-place-name m-b10">The Ledbury Restourant</h4>
-
-                            <div class="list-cat-phone p-b10"><i class="sl-icon-phone"></i><strong>(206)
-                                    441-8844</strong></div>
-                            <div class="list-cat-address p-b10"><i class="sl-icon-location"></i>NW18JR,
-                                United Kingdom</div>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                laudanti reminds eaque ipsa quae ab illo inventore veritatis.</p>
-                            <div class="single-preview-footer clearfix">
-                                <a href="#" class="site-button-link">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="single-preview-location-right">
-                        <div class="single-preview-map">
-                            <div id="singleListingMap-container">
-                                <div id="singleListingMappopup" data-latitude="40.70437865245596"
-                                    data-longitude="-73.98674011230469" data-map-icon="im im-icon-Hamburger"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-</div>
-
 <!-- LOADING AREA START ===== -->
 <div class="loading-area">
     <div class="loading-box"></div>
@@ -469,6 +401,8 @@
 <script src="{{ asset('/assets') }}/js/kinetic.js"></script>
 <script src="{{ asset('/assets') }}/js/jquery.final-countdown.js"></script>
 <script src="{{ asset('/assets') }}/js/custom.js"></script><!-- CUSTOM FUCTIONS  -->
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script><!-- CALENDAR PACKAGE  -->
+<script src="{{ asset('/assets') }}/js/calendar-website.js"></script><!-- CUSTOM FUCTIONS  -->
 
 </body>
 

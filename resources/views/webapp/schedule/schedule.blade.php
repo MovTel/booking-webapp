@@ -47,6 +47,7 @@
                     <p>
                         {{ $schedule->user->first_name . ' ' . $schedule->user->last_name }} <br>
                         {{ $schedule->user->contact_no }} <br>
+                        {{ $schedule->user->email }} <br>
                     </p>
                 </div>
             </div>
@@ -78,6 +79,22 @@
                                     <div class="form-group">
                                         <label>Comment</label>
                                         <textarea class="form-control" rows="3" name="comment" placeholder="Add Comment">{{ $schedule->comment }}</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <div id="singleListingMap-container">
+                                            <img src="{{ url($schedule->proof_of_payment) }}" alt="" class="image_container">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <div id="singleListingMap-container">
+                                            <img src="{{ url($schedule->id_image) }}" alt="" class="image_container">
+                                        </div>
                                     </div>
                                 </div>
                             </div>

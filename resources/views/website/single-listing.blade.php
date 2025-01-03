@@ -137,8 +137,7 @@
                                 @foreach ($unit->property_image as $image)
                                     <div class="item">
                                         <div class="wt-media">
-                                            <img src="{{ url($image->image_path) }}" alt=""
-                                                class="fixed-size-thumb">
+                                            <img src="{{ url($image->image_path) }}" alt="" class="fixed-size-thumb">
                                         </div>
                                     </div>
                                 @endforeach
@@ -475,6 +474,16 @@
                         </div>
                     </div>
                     <!-- Opening Hour End-->
+
+                    @if($logged_in)
+                        <a href="{{ url('booking/'. $unit->id . '?date=' . $date) }}" class="book-now-cta">BOOK NOW</a>
+                    @else
+                        <a href="javascript:;" class="book-now-cta" data-target=".sign-in-modal" data-toggle="modal"></i>BOOK NOW</a>
+                    @endif
+
+                    <div class="form-group calendar">
+                        <div id="calendar"></div>
+                    </div>
 
                 </div>
             </div>

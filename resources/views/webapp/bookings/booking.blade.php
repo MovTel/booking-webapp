@@ -44,7 +44,7 @@
                                     <div class="form-group">
                                         <label>Check-in Date</label>
                                         <div class="ls-inputicon-box">
-                                            <input class="form-control" name="checkin_date" type="date" value="{{ $date }}" readonly>
+                                            <input class="form-control" name="checkin_date" type="date" value="{{ $date }}" id="checkin_date">
                                             <i class="fs-input-icon fa fa-calendar"></i>
                                         </div>
                                     </div>
@@ -54,7 +54,7 @@
                                     <div class="form-group">
                                         <label>Check-out Date</label>
                                         <div class="ls-inputicon-box">
-                                            <input class="form-control" name="checkout_date" type="date" value="" required>
+                                            <input class="form-control" name="checkout_date" type="date" value="" required id="checkout_date">
                                             <i class="fs-input-icon fa fa-calendar"></i>
                                         </div>
                                     </div>
@@ -70,43 +70,62 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">
+                                <div class="col-xl-12 col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Guests</label>
                                         <textarea class="form-control" rows="3" name="guests" required></textarea>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="form-group">
-                        <label>Check-in Time</label>
-                        <div class="ls-inputicon-box time">
-                            @foreach ($hours as $hour)
-                                @if ($hour['status'] == 1)
-                                    <label class="radio"><input type="radio" name="checkin_time" value="{{ $hour['24hr'] }}" required>{{ $hour['12hr'] }}</label>
-                                @else
-                                    <label class="radio occupied">{{ $hour['12hr'] }}</label>
-                                @endif
-                            @endforeach
+                <div class="col-lg-8 col-md-6 breakdown-wrap">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Check-in Time</label>
+                            <div class="ls-inputicon-box time">
+                                @foreach ($hours as $hour)
+                                    @if ($hour['status'] == 1)
+                                        <label class="radio"><input type="radio" name="checkin_time" value="{{ $hour['24hr'] }}" required>{{ $hour['12hr'] }}</label>
+                                    @else
+                                        <label class="radio occupied">{{ $hour['12hr'] }}</label>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="form-group">
-                        <label>Check-out Time</label>
-                        <div class="ls-inputicon-box time">
-                            @foreach ($hours as $hour)
-                                @if ($hour['status'] == 1)
-                                    <label class="radio"><input type="radio" name="checkout_time" value="{{ $hour['24hr'] }}" required>{{ $hour['12hr'] }}</label>
-                                @else
-                                    <label class="radio occupied">{{ $hour['12hr'] }}</label>
-                                @endif
-                            @endforeach
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Check-out Time</label>
+                            <div class="ls-inputicon-box time">
+                                @foreach ($hours as $hour)
+                                    @if ($hour['status'] == 1)
+                                        <label class="radio"><input type="radio" name="checkout_time" value="{{ $hour['24hr'] }}" required>{{ $hour['12hr'] }}</label>
+                                    @else
+                                        <label class="radio occupied">{{ $hour['12hr'] }}</label>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <label>Breakdown</label>
+                            <div class="breakdown">
+                                <ul>
+                                    <li><span class="label">Checkin Date:</span><span class="value" id="checkin_value">--</span></li>
+                                    <li><span class="label">Checkout Date:</span><span class="value" id="checkout_value">--</span></li>
+                                    <li><span class="label">Rate per Hour:</span><span class="value" id="per_hour_value">--</span></li>
+                                    <li><span class="label">Total Hours:</span><span class="value" id="total_hours_value">--</span></li>
+                                    <li><span class="label">Booking Fee:</span><span class="value" id="booking_fee_value">--</span></li>
+                                    <li><span class="label">Total Cost:</span><span class="value" id="cost_value">--</span></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -118,7 +137,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-12 col-md-12">
+                <div class="col-xl-12 col-lg-12 col-md-12">
                     <div class="text-left">
                         @if(count($status_keycard))
                             <button type="submit" class="site-button-secondry site-btn-effect">Schedule Booking</button>
@@ -129,6 +148,8 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row"></div>
         </form>
     </div>
 </div>

@@ -12335,6 +12335,7 @@ ol.commentlist li::after {
 @media only screen and (max-width:767px) {
   .main-categories-slider-outer {
     margin-top: 30px;
+    display: none;
   }
 
   .map-apsolute-search {
@@ -13040,6 +13041,7 @@ ol.commentlist li::after {
   position: absolute;
   left: 30px;
   top: 30px;
+  font-size: 22px;
 }
 
 .cities-location-sign {
@@ -19581,4 +19583,78 @@ textarea.form-control2 {
 
 .centered {
   justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+  #quick_easy {
+    display: none;
+  }
+}
+
+.book-now-cta {
+  text-align: center;
+  display: block;
+  padding: 10px;
+  color: #fff;
+  background: #f96b39;
+  font-weight: 700;
+  border-radius: 7px;
+  transition: .2s;
+  margin-bottom: 30px;
+}
+
+.book-now-cta:hover {
+  transform: scale(.97);
+  color: #fff;
+  opacity: .7;
+}
+
+.breakdown {
+  padding: 20px;
+  background: #f7f6f6;
+  border-radius: 11px;
+}
+
+.breakdown ul {
+  list-style-type: none;
+  margin-bottom: 0px;
+}
+
+.breakdown ul li {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.breakdown ul li span.label {
+  min-width: 110px;
+  margin-right: 50px;
+}
+
+.breakdown-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.breakdown ul li span.value {
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 767px) {
+  .breakdown {
+    padding: 10px;
+  }
+
+  .breakdown ul li {
+    font-size: 12px;
+    line-height: 23px;
+    justify-content: space-between;
+  }
+
+  .breakdown ul li span.label {
+    min-width: 90px;
+    margin: 0px;
+  }
 }

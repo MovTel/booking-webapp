@@ -93,6 +93,9 @@ class BookingController extends Controller
                 $cost = $total_hours * $unit->per_hour_4_hrs;
             }
 
+            $booking_fee = $cost * 0.25;
+            $cost = $cost + $booking_fee;
+
             $conflict = Booking::where(function ($query) use ($checkin, $checkout, $unit_id) {
                 $query->where('checkin', '<', $checkout)->where('checkout', '>', $checkin)->where('unit_id', '=', $unit_id)->where('status', '=', 1);
             })->get();
