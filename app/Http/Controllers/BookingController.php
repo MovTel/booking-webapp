@@ -12,8 +12,8 @@ use Carbon\Carbon;
 use DateInterval;
 use DateTime;
 use Illuminate\Support\Facades\Redirect;
-
-use function PHPUnit\Framework\isEmpty;
+use App\Mail\NewBooking;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -72,6 +72,7 @@ class BookingController extends Controller
     public function store(Request $request, $unit_id)
     {
         $user_type = auth()->user()->user_type;
+        $user = User::where('email', auth()->user()->email)->first();
 
         if ($user_type == 4) {
             $checkin = new DateTime($request->checkin_date . "T" . $request->checkin_time);
@@ -147,6 +148,8 @@ class BookingController extends Controller
             ];
 
             Booking::create(array_merge($validated, $auto_gen))->id;
+
+            // Mail::to('mryanjacinto@gmail.com')->send(new NewBooking());
             return redirect('/booking')->with('message', 'reservation booked successfully.');
         }
 
@@ -321,18 +324,23 @@ class BookingController extends Controller
 
         if ($user_type == 1 || $user_type == 2 || $user_type == 3) {
             if ($request->query()) {
-                $schedules = Booking::select('*')->when($request->text_search && $request->string, function ($query) use ($request) {
-                    $query->where($request->text_search, 'like', '%' . $request->string . '%');
-                })->when($request->status || $request->status == 0, function ($query) use ($request) {
-                    $query->where('status', $request->status);
-                })->when($request->checkin_date, function ($query) use ($request) {
-                    $query->where('checkin_date', $request->checkin_date);
-                })->get();
-
+                $schedules = Booking::with(['unit']) // Add your relationships here
+                    ->select('*')
+                    ->when($request->text_search && $request->string, function ($query) use ($request) {
+                        $query->where($request->text_search, 'like', '%' . $request->string . '%');
+                    })
+                    ->when($request->status || $request->status == 0, function ($query) use ($request) {
+                        $query->where('status', $request->status);
+                    })
+                    ->when($request->checkin_date, function ($query) use ($request) {
+                        $query->where('checkin_date', $request->checkin_date);
+                    })
+                    ->get();
                 return view('webapp.schedule.index', ['schedules' => $schedules]);
             }
 
-            $schedules = Booking::with('user')->get();
+
+            $schedules = Booking::with(['user', 'unit'])->get();
             return view('webapp.schedule.index', ['schedules' => $schedules]);
         }
 

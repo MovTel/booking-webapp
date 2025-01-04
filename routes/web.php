@@ -87,5 +87,7 @@ Route::controller(Property_imageController::class)->middleware('auth')->group(fu
 // Website
 Route::get('/', [WebsiteController::class, 'index'])->name('login');
 Route::get('/about-us', [WebsiteController::class, 'about']);
+Route::get('/join-us', [WebsiteController::class, 'joinUs']);
+Route::get('/referral', [WebsiteController::class, 'referral']);
 Route::get('/properties/{id}', [WebsiteController::class, 'single']);
 Route::get('/{slug}', [WebsiteController::class, 'category']);

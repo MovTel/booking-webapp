@@ -36,4 +36,14 @@ class WebsiteController extends Controller
     {
         return view('website.about');
     }
+
+    public function joinUs()
+    {
+        return view('website.join-us');
+    }
+
+    public function referral()
+    {
+        return view('website.referral');
+    }
 }

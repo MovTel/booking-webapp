@@ -14,7 +14,7 @@ class Property_imageController extends Controller
 
         if ($user_type == 1 || $user_type == 2) {
             Property_image::where('id', $id)->delete();
-            return redirect('/unit');
+            return redirect::back()->with('message', 'Property image deleted successfully.');
         }
 
         return redirect('/dashboard');

@@ -12,9 +12,8 @@
                 <div class="container">
                     <form>
                         <div class="banner-textrow">
-                            <strong>Your one-stop hourly booking platform</strong>
-                            <span>All the hourly rental spaces - from Hotels, karaoke, gym, co-working spaces
-                                and more</span>
+                            <strong>Unlock more earnings, Hour by Hour.</strong>
+                            <span>All the hourly rental spaces - from Hotels, karaoke, gym, co-working spaces and more</span>
                         </div>
 
                         <div class="search-bar-warp row centered">
