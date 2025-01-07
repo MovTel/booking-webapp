@@ -49,6 +49,7 @@
                                   ✅ Earn more by hosting productions, events, and stays<br>
                                   ✅ Reach a wide audience of renters and creatives<br><br>
                                   Don’t miss this exclusive opportunity to grow your rental business with ease and efficiency.</p>
+                                <a href="javascript:;" class="sign-up-cta" data-target=".sign-in-modal" data-toggle="modal"></i>SIGN UP!</a>
                             </div>
 
                         </div>

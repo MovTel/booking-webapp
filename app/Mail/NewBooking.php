@@ -14,14 +14,28 @@ class NewBooking extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $name;
+    public $contact;
+    public $email;
+    public $unit;
+    public $checkin;
+    public $checkout;
+    public $guests;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->name = $data->user->first_name . " " . $data->user->last_name;
+        $this->contact = $data->user->contact_no;
+        $this->email = $data->user->email;
+        $this->unit = $data->unit->property_name;
+        $this->checkin = $data->checkout_formatted;
+        $this->checkout = $data->checkout_formatted;
+        $this->guests = $data->guests;
     }
 
     /**
@@ -45,7 +59,7 @@ class NewBooking extends Mailable
     public function content()
     {
         return new Content(
-            view: 'mail.new_booking',
+            markdown: 'mail.new_booking',
         );
     }
 

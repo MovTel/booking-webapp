@@ -8,6 +8,7 @@ use App\Http\Controllers\AgentController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\Property_imageController;
 use App\Http\Controllers\frontend\WebsiteController;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------

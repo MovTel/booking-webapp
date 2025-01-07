@@ -147,9 +147,9 @@ class BookingController extends Controller
                 'checkout_plus_one_hour' => $checkout_plus_1_hour,
             ];
 
-            Booking::create(array_merge($validated, $auto_gen))->id;
-
-            // Mail::to('mryanjacinto@gmail.com')->send(new NewBooking());
+            $booking_id = Booking::create(array_merge($validated, $auto_gen))->id;
+            $mail_details = Booking::with(['unit', 'user'])->findOrFail($booking_id);
+            Mail::to('movietelletechnology@gmail.com')->send(new NewBooking($mail_details));
             return redirect('/booking')->with('message', 'reservation booked successfully.');
         }
 

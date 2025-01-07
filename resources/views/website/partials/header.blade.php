@@ -17,16 +17,16 @@
 
     <meta property="og:title" content="@isset($title){{ $title }}@endisset | Movietelle">
     <meta property="og:description" content="@isset($description){{ $description }}@else{{ 'Discover the best staycation spots and hotels in Cebu, Tagaytay, and Manila. Enjoy luxury resorts, beachfront escapes, family-friendly stays, romantic getaways, and more.'}}@endisset">
-    <meta property="og:image" content="@isset($cover_image){{ url($cover_image) }}@elseif(isset($og_image)){{ $og_image }}@else{{ asset('assets') }}/images/movietelle.png @endisset">
-    <meta property="og:url" content="{{ url('/') }}">
+    <meta property="og:image" content="@isset($cover_image){{ url($cover_image) }}@elseif(isset($og_image)){{ $og_image }}@else{{ asset('assets') }}/images/movietelle.jpg @endisset">
+    <meta property="og:url" content="{{ Request::url() }}">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
 
-    <meta name="twitter:card" content="@isset($cover_image){{ url($cover_image) }}@else{{ asset('assets') }}/images/movietelle.png @endisset">
+    <meta name="twitter:card" content="@isset($cover_image){{ url($cover_image) }}@else{{ asset('assets') }}/images/movietelle.jpg @endisset">
     <meta name="twitter:title" content="@isset($title){{ $title }}@endisset | Movietelle">
     <meta name="twitter:description" content="@isset($description){{ $description }}@else{{ 'Discover the best staycation spots and hotels in Cebu, Tagaytay, and Manila. Enjoy luxury resorts, beachfront escapes, family-friendly stays, romantic getaways, and more.'}}@endisset">
-    <meta name="twitter:image" content="@isset($cover_image){{ url($cover_image) }}@else{{ asset('assets') }}/images/movietelle.png @endisset">
-    <meta name="twitter:url" content="{{ url('/') }}">
+    <meta name="twitter:image" content="@isset($cover_image){{ url($cover_image) }}@else{{ asset('assets') }}/images/movietelle.jpg @endisset">
+    <meta name="twitter:url" content="{{ Request::url() }}">
 
     <!-- PAGE TITLE HERE -->
     <title>@isset($title){{ $title }}@endisset | Movietelle</title>
@@ -131,7 +131,7 @@
                         </button>
 
                         <!-- MAIN Vav -->
-                        <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-center">
+                        <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-end">
 
                             <ul class=" nav navbar-nav">
                                 <li class="">
@@ -153,9 +153,11 @@
                                         <li><a href="{{ url('referral') }}">Referral Program</a></li>
                                     </ul>
                                 </li>
+                                @if (!auth()->user())
                                 <li>
-                                    <a href="javascript:;">Coming-soon</a>
+                                    <a href="javascript:;" data-toggle="modal" data-target=".sign-in-modal">SIGNUP</a>
                                 </li>
+                                @endif
                             </ul>
 
                         </div>
