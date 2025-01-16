@@ -46,4 +46,18 @@ class WebsiteController extends Controller
     {
         return view('website.referral');
     }
+
+    public function signup()
+    {
+        if (!auth()->user()) {
+            return view('website.signup');
+        }
+
+        return redirect('/');
+    }
+
+    public function countdown()
+    {
+        return view('website.countdown');
+    }
 }

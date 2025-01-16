@@ -55,90 +55,9 @@
                     </div>
                 </div>
 
-                {{-- <div class="col-lg-3 col-md-6 col-sm-12">
-                  <div class="widget widget_gallery mfp-gallery clearfix">
-                      <h4 class="widget-title">Useful links</h4>
-                      <div class="row no-gutters">
-                          <div class="col-md-4 col-sm-6 col-2">
-                              <div class="wt-post-thum">
-                                  <a href="images/gallery/pic1.jpg" class="mfp-link"><img
-                                          src="{{ asset('assets') }}/images/gallery/thumb/pic1.jpg"
-                                          alt=""></a>
-                              </div>
-                          </div>
-                          <div class="col-md-4 col-sm-6 col-2">
-                              <div class="wt-post-thum">
-                                  <a href="images/gallery/pic2.jpg" class="mfp-link"><img
-                                          src="{{ asset('assets') }}/images/gallery/thumb/pic2.jpg"
-                                          alt=""></a>
-                              </div>
-                          </div>
-                          <div class="col-md-4 col-sm-6 col-2">
-                              <div class="wt-post-thum">
-                                  <a href="images/gallery/pic3.jpg" class="mfp-link"><img
-                                          src="{{ asset('assets') }}/images/gallery/thumb/pic3.jpg"
-                                          alt=""></a>
-                              </div>
-                          </div>
-                          <div class="col-md-4 col-sm-6 col-2">
-                              <div class="wt-post-thum">
-                                  <a href="images/gallery/pic4.jpg" class="mfp-link"><img
-                                          src="{{ asset('assets') }}/images/gallery/thumb/pic4.jpg"
-                                          alt=""></a>
-                              </div>
-                          </div>
-                          <div class="col-md-4 col-sm-6 col-2">
-                              <div class="wt-post-thum">
-                                  <a href="images/gallery/pic5.jpg" class="mfp-link"><img
-                                          src="{{ asset('assets') }}/images/gallery/thumb/pic5.jpg"
-                                          alt=""></a>
-                              </div>
-                          </div>
-                          <div class="col-md-4 col-sm-6 col-2">
-                              <div class="wt-post-thum">
-                                  <a href="images/gallery/pic6.jpg" class="mfp-link"><img
-                                          src="{{ asset('assets') }}/images/gallery/thumb/pic6.jpg"
-                                          alt=""></a>
-                              </div>
-                          </div>
-
-                      </div>
-                  </div>
-
-
-
-              </div> --}}
-
             </div>
         </div>
     </div>
-    <!-- FOOTER COPYRIGHT -->
-
-    {{-- <div class="footer-bottom">
-      <div class="container">
-          <div class="d-flex justify-content-between">
-              <div class="wt-footer-bot-left">
-                  <ul class="copyrights-nav">
-                      <li><a href="javascript:void(0);">Terms &amp; Condition</a></li>
-                      <li><a href="javascript:void(0);">Privacy Policy</a></li>
-                      <li><a href="contact-1.html">Contact Us</a></li>
-                  </ul>
-                  <span class="copyrights-text">© 2019 Your Company. All Rights Reserved. Designed By
-                      thewebmax</span>
-              </div>
-
-              <ul class="footer-payments">
-                  <li><a href="javascript:;"><i class="fa fa-cc-amex"></i></a></li>
-                  <li><a href="javascript:;"><i class="fa fa-cc-visa "></i></a></li>
-                  <li><a href="javascript:;"><i class="fa fa-credit-card-alt"></i></a></li>
-                  <li><a href="javascript:;"><i class="fa fa-cc-mastercard"></i></a></li>
-                  <li><a href="javascript:;"><i class="fa fa-cc-paypal"></i></a></li>
-              </ul>
-
-          </div>
-      </div>
-  </div> --}}
-
 
 </footer>
 <!-- FOOTER END -->
@@ -361,17 +280,6 @@
 
     </div>
 </div>
-
-<!-- LOADING AREA START ===== -->
-{{-- <div class="loading-area">
-    <div class="loading-box"></div>
-    <div class="loading-pic">
-        <div class='load-pin load-bounce'></div>
-        <div class='load-pulse'></div>
-
-    </div>
-</div> --}}
-<!-- LOADING AREA  END ====== -->
 
 <!-- JAVASCRIPT  FILES ========================================= -->
 <script src="{{ asset('/assets') }}/js/jquery-2.2.0.min.js"></script><!-- JQUERY.MIN JS -->

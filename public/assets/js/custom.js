@@ -607,10 +607,11 @@ All JavaScript fuctions Start
 	}
 		
 	function countdown_circle(){
+		const now = Math.floor(Date.now() / 1000); 
 		jQuery('.countdown').final_countdown({
 			'start': 1362139200,
-			'end': 1388461320,
-			'now': 1387461319        
+			'end': 1736899200,
+			'now': now        
 		});	
 	}		
 //menu navigation 

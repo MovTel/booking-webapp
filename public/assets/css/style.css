@@ -19679,3 +19679,26 @@ textarea.form-control2 {
     margin: 0px;
   }
 }
+
+.single-mod {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.sign-in-dialog .wt-tabs .tab-pane.no-pd {
+  padding: 0;
+}
+
+.countdown-logo {
+  max-width: 200px;
+  margin: 0 auto 50px;
+}
+
+.cta-signup {
+  padding: 20px 10px;
+  background: #f96b39;
+  border-radius: 15px;
+  display: block;
+  color: #fff;
+  font-weight: 600;
+}

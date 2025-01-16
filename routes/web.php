@@ -90,5 +90,7 @@ Route::get('/', [WebsiteController::class, 'index'])->name('login');
 Route::get('/about-us', [WebsiteController::class, 'about']);
 Route::get('/join-us', [WebsiteController::class, 'joinUs']);
 Route::get('/referral', [WebsiteController::class, 'referral']);
+Route::get('/signup', [WebsiteController::class, 'signup']);
 Route::get('/properties/{id}', [WebsiteController::class, 'single']);
+Route::get('/registration-promo', [WebsiteController::class, 'countdown']);
 Route::get('/{slug}', [WebsiteController::class, 'category']);

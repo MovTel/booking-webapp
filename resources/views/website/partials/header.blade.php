@@ -151,11 +151,12 @@
                                     <ul class="sub-menu">
                                         <li><a href="{{ url('join-us') }}">Join Us!</a></li>
                                         <li><a href="{{ url('referral') }}">Referral Program</a></li>
+                                        <li><a href="{{ url('registration-promo') }}">50% OFF!</a></li>
                                     </ul>
                                 </li>
                                 @if (!auth()->user())
                                 <li>
-                                    <a href="javascript:;" data-toggle="modal" data-target=".sign-in-modal">SIGNUP</a>
+                                    <a href="{{ url('/signup') }}">SIGNUP</a>
                                 </li>
                                 @endif
                             </ul>
